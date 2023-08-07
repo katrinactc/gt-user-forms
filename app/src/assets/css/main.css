@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    input {
+        @apply p-2 w-full text-gray-600 rounded text-sm focus:outline-none focus:ring ease-linear transition-all duration-150 border border-gray-300;
+    }
+
+    button.primary {
+        @apply rounded text-center font-extrabold bg-emerald-400 text-white hover:bg-emerald-300 visited:bg-emerald-700 disabled:bg-gray-300 disabled:text-gray-500;
+    }
+
+    button.m {
+        @apply h-12 w-24 text-lg
+    }
+}
