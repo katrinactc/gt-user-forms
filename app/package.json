@@ -10,7 +10,11 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
+    "@vee-validate/i18n": "^4.11.1",
+    "@vee-validate/rules": "^4.11.1",
+    "@vuepic/vue-datepicker": "^5.4.0",
     "pinia": "^2.1.4",
+    "vee-validate": "^4.11.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
