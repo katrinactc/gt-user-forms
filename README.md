@@ -3,5 +3,5 @@
 ```sh
 cp server/.env.sample server/.env
 
-yarn
+npm run dev
 ```
