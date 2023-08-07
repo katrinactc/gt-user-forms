@@ -4,6 +4,15 @@
 
 <script setup lang="ts">
 import DynamicForm from '@/components/form/DynamicForm.vue'
+import router, { RouteName } from "@/router";
+import { useToastStore } from '@/stores/toast';
+import { useUserStore } from '@/stores/users';
+
+const userStore = useUserStore();
+const { createUser } = userStore;
+
+const toastStore = useToastStore();
+const { displayError } = toastStore;
 
 const fields = [
     {
@@ -35,6 +44,16 @@ const validationSchema = {
 }
 
 async function handleSubmitForm(formValues: Record<string, any>) {
-    console.log(formValues)
+    const result: any = await createUser({
+        name: formValues.name,
+        email: formValues.email,
+        dateOfBirth: formValues.dateOfBirth,
+        phoneNumber: formValues.phoneNumber,
+    });
+    if (result.insertedId) {
+        router.push({ name: RouteName.userForms });
+    } else {
+        displayError({ title: "Failed to submit user form", message: result.response?.data?.message })
+    }
 }
 </script>

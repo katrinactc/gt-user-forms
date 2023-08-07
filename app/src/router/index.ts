@@ -5,15 +5,22 @@ export enum RouteName {
   userForms = "user-forms",
 }
 
+const routes = [
+  {
+    path: '/',
+    name: RouteName.home,
+    component: () => import('../views/home/index.vue')
+  },
+  {
+    path: '/user-forms',
+    name: RouteName.userForms,
+    component: () => import('../views/user-forms/index.vue')
+  }
+]
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: RouteName.home,
-      component: () => import('../views/home/index.vue')
-    },
-  ]
+  routes,
 })
 
 export default router
